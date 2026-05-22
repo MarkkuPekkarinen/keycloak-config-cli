@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 - Fix LDAP default mappers deletion on initial creation (when LDAP UserStorageProvider is created with an empty subComponents block, Keycloak's automatically generated default mappers are now correctly deleted) [#1514](https://github.com/adorsys/keycloak-config-cli/issues/1514)
+- Fix regression under Keycloak FGAP V2 where authorization resource placeholders were eagerly stripped to bare UUIDs for custom clients (stripping is now safely scoped to internal admin clients only) [#1526](https://github.com/adorsys/keycloak-config-cli/issues/1526)
 - Fix `NullPointerException` during normalization when optional fields like `keycloakVersion` or client `protocol` are missing from the exported JSON [#1536](https://github.com/adorsys/keycloak-config-cli/issues/1536)
 - Fix Helm chart not being published to GitHub Pages on releases by publishing from tag pushes instead of main branch [#1356](https://github.com/adorsys/keycloak-config-cli/issues/1356)
 - Fix organization pagination conflict when importing realms with more than 10 organizations [#1493](https://github.com/adorsys/keycloak-config-cli/issues/1493)
